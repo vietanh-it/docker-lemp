@@ -1,0 +1,14 @@
+version: "3"
+services:
+  nginx:
+    image: "nginx:alpine"
+    ports:
+      - "80:80"
+    volumes:
+      - ./public:/var/www/html/web
+      - ./logs:/var/log/nginx
+      - ./conf/nginx:/etc/nginx/conf.d
+  phpfpm:
+    image: "php:fpm-alpine"
+    ports:
+      - "9000:9000"
